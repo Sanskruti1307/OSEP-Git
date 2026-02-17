@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Collaboration Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+      
+        code:not(pre code) {
+            background-color: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            color: #4f46e5;
+        }
+      
+        pre code {
+            background-color: transparent !important;
+            color: #94a3b8;
+            padding: 0;
+        }
+        .command-highlight {
+            color: #818cf8; 
+        }
+        .comment-gray {
+            color: #64748b;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+
+    <!-- Navbar -->
+    <nav class="gradient-bg p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tight">Git Training Repo</h1>
+            <div class="space-x-4">
+                <a href="#guide" class="hover:underline">Guide</a>
+                <a href="#terminal" class="hover:underline">Commands</a>
+                <a href="#contributors" class="bg-white text-indigo-600 px-4 py-2 rounded-lg font-semibold shadow-md">Add Yourself</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container mx-auto mt-10 px-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">Learn Git by Doing</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            This is a demo repository for students to practice the Fork, Branch, and Pull Request workflow.
+        </p>
+    </header>
+
+    <!-- Contribution Guide -->
+    <section id="guide" class="container mx-auto mt-16 px-4">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                <div class="w-12 h-12 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-full mb-4 font-bold text-xl">1</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-800">Fork & Clone</h3>
+                <p class="text-gray-600">Click the 'Fork' button on GitHub, then clone your copy to your local machine using VS Code.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                <div class="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-full mb-4 font-bold text-xl">2</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-800">Create a Branch</h3>
+                <p class="text-gray-600">Run <code>git checkout -b your-name</code> to create a new branch before making any changes.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 flex items-center justify-center rounded-full mb-4 font-bold text-xl">3</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-800">Push & PR</h3>
+                <p class="text-gray-600">Add your info to the list below, push to your fork, and open a Pull Request!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal Commands Section -->
+    <section id="terminal" class="container mx-auto mt-20 px-4">
+        <div class="bg-slate-900 rounded-2xl shadow-2xl p-8 text-gray-300">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <span class="mr-2">💻</span> Terminal Step-by-Step
+            </h3>
+            
+            <div class="space-y-6">
+                <div>
+                    <p class="text-indigo-400 font-semibold mb-2">1. Initialize and set up remotes</p>
+                    <div class="bg-slate-950 p-5 rounded-lg border border-slate-800 overflow-x-auto">
+                        <pre class="font-mono text-sm leading-relaxed"><span class="comment-gray"># Clone your fork (replace with YOUR username)</span>
+<span class="command-highlight">git clone https://github.com/YOUR_USERNAME/SDK_Test.git</span>
+
+<span class="comment-gray"># Enter the directory</span>
+<span class="command-highlight">cd SDK_Test</span>
+
+<span class="comment-gray"># Add the original repo as 'upstream' to stay updated</span>
+<span class="command-highlight">git remote add upstream https://github.com/Master-Mind-007/SDK_Test.git</span></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-indigo-400 font-semibold mb-2">2. Create a feature branch</p>
+                    <div class="bg-slate-950 p-5 rounded-lg border border-slate-800 overflow-x-auto">
+                        <pre class="font-mono text-sm leading-relaxed"><span class="comment-gray"># Create and switch to a new branch</span>
+<span class="command-highlight">git checkout -b feature/add-my-name</span></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-indigo-400 font-semibold mb-2">3. Save and Push changes</p>
+                    <div class="bg-slate-950 p-5 rounded-lg border border-slate-800 overflow-x-auto">
+                        <pre class="font-mono text-sm leading-relaxed"><span class="comment-gray"># Stage your changes</span>
+<span class="command-highlight">git add .</span>
+
+<span class="comment-gray"># Create a commit message</span>
+<span class="command-highlight">git commit -m "Add [Your Name] to contributor list"</span>
+
+<span class="comment-gray"># Push to YOUR fork (origin)</span>
+<span class="command-highlight">git push -u origin feature/add-my-name</span></pre>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-900/20 p-4 rounded-lg border border-indigo-500/30">
+                    <p class="text-indigo-100 font-bold">Final Step:</p>
+                    <p class="text-indigo-200 text-sm">Go to your GitHub profile, open the repository, and click the green <span class="text-green-400 font-bold">"Compare & Pull Request"</span> button!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contributors Section -->
+    <section id="contributors" class="container mx-auto my-20 px-4">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-8 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800">Our Contributors</h3>
+                    <p class="text-gray-500">Add your card below to join the wall of fame!</p>
+                </div>
+            </div>
+
+            <div class="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="contributor-list">
+                
+                <!-- EXAMPLE CONTRIBUTOR CARD START -->
+                <div class="border-2 border-dashed border-indigo-200 p-4 rounded-lg bg-indigo-50">
+                    <p class="font-bold text-indigo-800">🚀 Mikhil</p>
+                    <p class="text-sm text-indigo-600 italic">"Teaching the world to code, one commit at a time."</p>
+                </div>
+                <!-- EXAMPLE CONTRIBUTOR CARD END -->
+
+                <!-- STUDENTS: ADD YOUR CARDS BELOW THIS LINE -->
+                
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-10 text-gray-400 text-sm">
+        <p>Built for educational purposes • Git & GitHub Workshop</p>
+    </footer>
+
+    <script>
+        console.log("Welcome to the Student Hub! Ready to make your first PR?");
+    </script>
+</body>
+</html>
